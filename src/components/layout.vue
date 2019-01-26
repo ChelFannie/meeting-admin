@@ -2,20 +2,37 @@
   <div class="layout">
     <el-container>
       <el-header>
-        <el-row>
-          <el-col :span="3" class="title">会议管理系统</el-col>
-          <el-col :span="12">
+        <div class="title">
+          <img src="../assets/images/LOGO.png" alt="">
+        </div>
+        <div class="menu">
+          <!-- <el-menu
+            :default-active="activeMenu"
+            background-color="#63B7FD"
+            text-color="#d9ecfc"
+            active-text-color="#fff"
+            @select="selectMenu"
+            mode="horizontal">
+            <el-menu-item v-for="(menu, index) in menuLists" :key="index" :index="menu.itemIndex">
+              {{menu.title}}
+            </el-menu-item>
+          </el-menu> -->
+          <i-aside :menu-lists="menuLists" :active-menu="activeMenu" @select="selectMenu"></i-aside>
+        </div>
+        <div class="exit">退出</div>
+        <!-- <el-row>
+          <el-col :span="2" class="title">
+            <img src="../assets/images/LOGO.png" alt="">
+          </el-col>
+          <el-col :span="10">
             <i-aside :menu-lists="menuLists" :active-menu="activeMenu" @select="selectMenu"></i-aside>
           </el-col>
-          <el-col :span="2" :offset="7">退出</el-col>
-        </el-row>
+          <el-col style="float:right;" :span="2"  class="exit">退出</el-col>
+        </el-row> -->
       </el-header>
       <el-container>
-          <!-- <el-aside width="200px">
-            <i-aside :menu-lists="menuLists" :active-menu="activeMenu" @select="selectMenu"></i-aside>
-          </el-aside> -->
           <el-main>
-            <div class="container">
+            <div class="content">
               <router-view></router-view>
             </div>
           </el-main>
@@ -36,8 +53,8 @@ export default {
       menuLists: [
         {itemIndex: '/order', title: '查询申请'},
         {itemIndex: '/examine', title: '审核申请'},
-        {itemIndex: '/lecturer', title: '讲师管理'},
-        {itemIndex: '/refund', title: '退款处理'}
+        {itemIndex: '/refund', title: '退款处理'},
+        {itemIndex: '/lecturer', title: '讲师管理'}
       ],
       activeMenu: this.$route.path
     }
@@ -56,33 +73,48 @@ export default {
 </script>
 <style lang="less">
 .layout{
+  width: 100%;
+  box-sizing: border-box;
   .el-header{
-    background-color: #d7d7d7;
+    background-color: #63B7FD;
     color: #333;
     text-align: center;
+    height: 60px;
     line-height: 60px;
     padding: 0;
+    font-size: 16px;
+    overflow: hidden;
     .title{
-      position: relative;
-      &::after{
-        content: '.';
-        height: 50px;
-        width: 1px;
-        background-color: #717171;
-        position: absolute;
-        right: 0;
-        top: 5px;
+      float: left;
+      width: 160px;
+      height: 60px;
+      img{
+        width: 142px;
+        position: relative;
+        top: 10px;
       }
     }
+    .menu{
+      float: left;
+    }
     .i-aside{
-      .el-menu--horizontal.el-menu{
-        .el-menu-item{
-          background-color: #d7d7d7!important;
-        }
-        .el-menu-item.is-active{
-          background-color: #c9c9c9!important;
-        }
+      .el-menu--horizontal>.el-menu-item {
+        border: transparent;
       }
+      .el-menu-item{
+        padding: 0 30px;
+        background-color: #63B7FD!important;
+        font-size: 16px;
+      }
+      .el-menu-item.is-active{
+        font-weight: bolder;
+      }
+    }
+    .exit{
+      float: right;
+      margin-right: 100px;
+      color: #fff;
+      cursor: pointer;
     }
   }
 
@@ -91,9 +123,14 @@ export default {
   }
 
   .el-main {
-    background-color: #f2f2f2;
-    color: #333;
-    // text-align: center;
+    background-color: #F7F7F7;
+    .content{
+      background-color: #fff;
+      box-shadow:0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+      border-radius:10px;
+      padding: 20px;
+      padding-left: 40px;
+    }
   }
 }
 </style>

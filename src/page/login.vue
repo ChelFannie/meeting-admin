@@ -85,6 +85,10 @@ export default {
     .el-form-item__content{
       margin-right: 60px;
     }
+    .el-form-item{
+      width: 160px;
+      padding: 0;
+    }
     .el-form-item:nth-of-type(3) .el-form-item__content{
       display: flex;
       flex-direction: row;

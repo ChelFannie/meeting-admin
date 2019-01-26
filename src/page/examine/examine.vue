@@ -1,7 +1,6 @@
 <template>
   <div class="examine">
     <el-tabs v-model="tabsActiveName" @tab-click="tabHandle">
-      <div class="pos-text">位置：</div>
       <el-tab-pane label="会务组审核" name="meetingHandler">
         <meeting-handler></meeting-handler>
       </el-tab-pane>

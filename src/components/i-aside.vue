@@ -2,9 +2,9 @@
   <div class="i-aside">
     <el-menu
       :default-active="activeMenu"
-      background-color="#e4e4e4"
-      text-color="#000"
-      active-text-color="#ffd04b"
+      background-color="#63B7FD"
+      text-color="#d9ecfc"
+      active-text-color="#fff"
       @select="selectMenu"
       mode="horizontal">
       <el-menu-item v-for="(menu, index) in menuLists" :key="index" :index="menu.itemIndex">
@@ -41,11 +41,11 @@ export default {
 <style lang="less">
 .i-aside{
   .el-menu{
-    display: flex;
-    flex-direction: row;
-    .el-menu-item{
-      flex: 1;
-    }
+    // border: none;
+    // width: 640px;
+    // .el-menu-item{
+    //   width: 160px!important;
+    // }
   }
 }
 </style>

@@ -14,10 +14,11 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video ,input{
 	margin: 0;
 	padding: 0;
-	vertical-align: baseline;
+	/* vertical-align: baseline; */
   border: 0;
-  outline: none;
-  color: #585858;
+	outline: none;
+	border: none;
+  /* color: #585858; */
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
