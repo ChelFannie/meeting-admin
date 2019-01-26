@@ -6,29 +6,9 @@
           <img src="../assets/images/LOGO.png" alt="">
         </div>
         <div class="menu">
-          <!-- <el-menu
-            :default-active="activeMenu"
-            background-color="#63B7FD"
-            text-color="#d9ecfc"
-            active-text-color="#fff"
-            @select="selectMenu"
-            mode="horizontal">
-            <el-menu-item v-for="(menu, index) in menuLists" :key="index" :index="menu.itemIndex">
-              {{menu.title}}
-            </el-menu-item>
-          </el-menu> -->
           <i-aside :menu-lists="menuLists" :active-menu="activeMenu" @select="selectMenu"></i-aside>
         </div>
         <div class="exit">退出</div>
-        <!-- <el-row>
-          <el-col :span="2" class="title">
-            <img src="../assets/images/LOGO.png" alt="">
-          </el-col>
-          <el-col :span="10">
-            <i-aside :menu-lists="menuLists" :active-menu="activeMenu" @select="selectMenu"></i-aside>
-          </el-col>
-          <el-col style="float:right;" :span="2"  class="exit">退出</el-col>
-        </el-row> -->
       </el-header>
       <el-container>
           <el-main>

@@ -1,13 +1,13 @@
 <template>
-  <div class="meeting-handler">
+  <div class="not-refund">
+    <!-- not-refund -->
     <container :table-columns="tableColumns" :table-data="tableData"></container>
   </div>
 </template>
 <script>
 import Container from '../../components/common/container'
-
 export default {
-  name: 'meeting-handler',
+  name: 'not-refund',
   components: {
     Container
   },
@@ -63,7 +63,7 @@ export default {
 }
 </script>
 <style scoped>
-.meeting-handler{
+.not-refund{
   font-size: 32px;
 }
 </style>

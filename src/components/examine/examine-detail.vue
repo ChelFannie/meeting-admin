@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import Container from '../../components/container'
+import Container from '../../components/common/container'
 
 export default {
   name: 'examine-detail',

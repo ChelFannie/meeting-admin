@@ -1,5 +1,5 @@
 <template>
-  <div class="meeting-handler">
+  <div class="complete-refund">
     <container :table-columns="tableColumns" :table-data="tableData"></container>
   </div>
 </template>
@@ -7,7 +7,7 @@
 import Container from '../../components/common/container'
 
 export default {
-  name: 'meeting-handler',
+  name: 'complete-refund',
   components: {
     Container
   },
@@ -63,7 +63,7 @@ export default {
 }
 </script>
 <style scoped>
-.meeting-handler{
+.complete-refund{
   font-size: 32px;
 }
 </style>

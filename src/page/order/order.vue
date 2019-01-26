@@ -2,18 +2,48 @@
   <div class="order">
     <el-tabs v-model="activeName">
       <el-tab-pane label="查询申请" name="meeting">
-        <container :table-columns="tableColumns" :table-data="tableData"></container>
+        <!-- 搜索列表项 -->
+        <search-list @search="search" @clear="clear"></search-list>
+
+        <!-- 表格内容 -->
+        <container
+          :table-columns="tableColumns"
+          :table-data="tableData"
+          @handleEdit="handleEdit"></container>
+
+        <!-- 分页 -->
+        <div class="bottom-pagination">
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="currentPage"
+            :page-sizes="[3, 10, 20, 30, 50]"
+            :page-size="3"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="tableData.length || 0">
+          </el-pagination>
+        </div>
+
       </el-tab-pane>
     </el-tabs>
+
+    <!-- 详情弹出框 -->
+    <el-dialog :visible.sync="dialogTableVisible">
+      <meetinglist-detail :grid-data="gridData" @back="back"></meetinglist-detail>
+    </el-dialog>
   </div>
 </template>
 <script>
-import Container from '../../components/container'
+import SearchList from '../../components/common/search-list'
+import Container from '../../components/common/container'
+import MeetinglistDetail from '../../components/common/meetinglist-detail'
 
 export default {
   name: 'order',
   components: {
-    Container
+    Container,
+    SearchList,
+    MeetinglistDetail
   },
   data () {
     return {
@@ -39,7 +69,8 @@ export default {
           region: '广东-广州',
           meetingTime: '2019/01/15-2019/01/16',
           state: '预约中',
-          operation: ['查看']
+          operation: ['查看'],
+          meetingAddress: '广东广州天河区广州大道北'
         }, {
           applyTime: '2019/01/12',
           applicantName: '梁娜娜',
@@ -122,16 +153,72 @@ export default {
           state: '预约中',
           operation: ['查看', '编辑']
         }
-      ]
+      ],
+      // 当前页码
+      currentPage: 1,
+      // 表格弹出框详细数据
+      gridData: [
+        {label: '会议状态', prop: 'state', text: ''},
+        {label: '申请时间', prop: 'applyTime', text: ''},
+        {label: '姓名', prop: 'applicantName', text: ''},
+        {label: '手机号', prop: 'applicantMobileNumber', text: ''},
+        {label: '教师', prop: 'lecturer', text: ''},
+        {label: '会议时间', prop: 'meetingTime', text: ''},
+        {label: '会议地点', prop: 'region', text: ''},
+        {label: '详细地址', prop: 'meetingAddress', text: ''},
+        {label: '会议性质', prop: '', text: ''},
+        {label: '预计人数', prop: '', text: ''},
+        {label: '会议背景', prop: '', text: ''}
+      ],
+      dialogTableVisible: false
     }
   },
   created () {},
   mounted () {},
-  methods: {}
+  methods: {
+    // 搜索
+    search (val) {
+      console.log(val)
+    },
+    // 清空搜索
+    clear (val) {
+      console.log(val)
+    },
+    // 点击操作栏
+    handleEdit (val) {
+      // console.log(val)
+      this.dialogTableVisible = true
+      this.gridData.map(item => {
+        Object.keys(val.row).map(key => {
+          if (item.prop === key) {
+            item.text = val.row[key]
+          }
+        })
+      })
+    },
+    handleSizeChange (val) {
+      console.log(val, 'handleSizeChange')
+    },
+    handleCurrentChange (val) {
+      console.log(val, 'handleCurrentChange')
+    },
+    // 点击弹出框中的返回
+    back () {
+      this.dialogTableVisible = false
+    }
+  }
 }
 </script>
-<style scoped>
+<style lang="less">
 .order{
-  /* font-size: 32px; */
+  .el-pagination{
+    padding-left: 0;
+    margin-top: 20px;
+    text-align: right;
+  }
+  .el-dialog{
+    background-color: #f2f2f2;
+    width: 500px;
+  }
 }
 </style>
