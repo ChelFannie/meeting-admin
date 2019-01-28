@@ -210,10 +210,5 @@ export default {
 }
 </script>
 <style lang="less">
-.order{
-  .line-right-h{
-    height: 40px;
-    line-height: 40px;
-  }
-}
+.order{}
 </style>

@@ -56,6 +56,7 @@ export default {
   mounted () {},
   methods: {
     handleEdit (index, row, index1) {
+      console.log('handleEdit container')
       this.$emit('handleEdit', {tabIndex: index, row: row, operationIndex: index1})
     }
   }

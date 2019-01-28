@@ -104,6 +104,9 @@ export default {
     }
   }
 
+  .el-container{
+    height: 100%;
+  }
   .el-main {
     background-color: #F7F7F7;
     height: 100%;

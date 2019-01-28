@@ -5,10 +5,10 @@
         <meeting-handler @handleEdit="handleEdit"></meeting-handler>
       </el-tab-pane>
       <el-tab-pane label="营销中心审核" name="marketingCenter">
-        <marketing-center></marketing-center>
+        <marketing-center @handleEdit="handleEdit"></marketing-center>
       </el-tab-pane>
       <el-tab-pane label="审核跟进" name="examineDetail">
-        <examine-detail></examine-detail>
+        <examine-detail @handleEdit="handleEdit"></examine-detail>
       </el-tab-pane>
     </el-tabs>
 
@@ -32,7 +32,8 @@
         :grid-data="gridData"
         @back="back"
         @save="save"
-        @approval="approval"></meetinglist-detail>
+        @approval="approval"
+        @cancel="cancel"></meetinglist-detail>
     </el-dialog>
   </div>
 </template>
@@ -92,6 +93,10 @@ export default {
     },
     // 点击操作栏
     handleEdit (val) {
+      if (this.btnFlag === 'examineDetail' && val.operationIndex === 1) {
+        console.log('取消会议')
+        return
+      }
       // console.log(val)
       this.dialogTableVisible = true
       this.gridData.map(item => {
@@ -113,6 +118,10 @@ export default {
     },
     approval () {
       console.log('批准')
+      this.dialogTableVisible = false
+    },
+    cancel () {
+      console.log('取消会议')
       this.dialogTableVisible = false
     }
   }

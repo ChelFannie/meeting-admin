@@ -1,6 +1,6 @@
 <template>
   <div class="marketing-center">
-    <container :table-columns="tableColumns" :table-data="tableData"></container>
+    <container :table-columns="tableColumns" :table-data="tableData" @handleEdit="handleEdit"></container>
   </div>
 </template>
 <script>
@@ -33,7 +33,7 @@ export default {
           region: '广东-广州',
           meetingTime: '2019/01/15-2019/01/16',
           state: '预约中',
-          operation: ['查看']
+          operation: ['审核']
         }, {
           applyTime: '2019/01/12',
           applicantName: '梁娜娜',
@@ -42,7 +42,7 @@ export default {
           region: '北京-北京',
           meetingTime: '2019/01/13-2019/01/16',
           state: '预约中',
-          operation: ['查看']
+          operation: ['审核']
         }, {
           applyTime: '2019/01/11',
           applicantName: '陶仁波',
@@ -51,14 +51,20 @@ export default {
           region: '湖南-长沙',
           meetingTime: '2019/01/14-2019/01/15',
           state: '预约中',
-          operation: ['查看', '编辑']
+          operation: ['审核']
         }
       ]
     }
   },
   created () {},
   mounted () {},
-  methods: {}
+  methods: {
+    // 点击操作栏
+    handleEdit (val) {
+      console.log(val, 4)
+      this.$emit('handleEdit', val)
+    }
+  }
 }
 </script>
 <style scoped>
