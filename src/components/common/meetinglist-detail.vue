@@ -88,7 +88,7 @@
     </div>
 
     <div class="detail-bottom">
-      <el-button v-if="btnFlag==='order'" type="primary" @click="back">返回</el-button>
+      <el-button v-if="btnFlag==='order' || btnFlag==='completeRefund'" type="primary" @click="back">返回</el-button>
 
       <div v-if="btnFlag==='meetingHandler'">
         <el-button type="primary" @click="approval">批准</el-button>
@@ -96,7 +96,7 @@
         <el-button type="primary" @click="back">返回</el-button>
       </div>
 
-      <div v-if="btnFlag==='marketingCenter'">
+      <div v-if="btnFlag==='marketingCenter' || btnFlag==='notRefund'">
         <el-button type="primary" @click="approval">批准</el-button>
         <el-button type="primary" @click="back">返回</el-button>
       </div>

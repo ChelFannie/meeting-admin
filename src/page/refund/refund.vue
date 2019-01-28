@@ -10,7 +10,7 @@
       </el-tab-pane>
 
       <el-tab-pane label="完成退款" name="completeRefund">
-        <complete-refund></complete-refund>
+        <complete-refund @handleEdit="handleEdit"></complete-refund>
       </el-tab-pane>
     </el-tabs>
 
@@ -33,9 +33,7 @@
         :btn-flag="tabsActiveName"
         :grid-data="gridData"
         @back="back"
-        @save="save"
-        @approval="approval"
-        @cancel="cancel"></meetinglist-detail>
+        @approval="approval"></meetinglist-detail>
     </el-dialog>
   </div>
 </template>

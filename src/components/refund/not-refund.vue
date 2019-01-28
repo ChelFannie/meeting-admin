@@ -32,8 +32,8 @@ export default {
           lecturer: '曾斌',
           region: '广东-广州',
           meetingTime: '2019/01/15-2019/01/16',
-          state: '预约中',
-          operation: ['查看']
+          state: '会议完成',
+          operation: ['批准退款']
         }, {
           applyTime: '2019/01/12',
           applicantName: '梁娜娜',
@@ -41,8 +41,8 @@ export default {
           lecturer: '冷佟',
           region: '北京-北京',
           meetingTime: '2019/01/13-2019/01/16',
-          state: '预约中',
-          operation: ['查看']
+          state: '会议完成',
+          operation: ['批准退款']
         }, {
           applyTime: '2019/01/11',
           applicantName: '陶仁波',
@@ -50,8 +50,8 @@ export default {
           lecturer: '张偲程',
           region: '湖南-长沙',
           meetingTime: '2019/01/14-2019/01/15',
-          state: '预约中',
-          operation: ['查看', '编辑']
+          state: '会议完成',
+          operation: ['批准退款']
         }
       ]
     }
@@ -68,7 +68,4 @@ export default {
 }
 </script>
 <style scoped>
-.not-refund{
-  font-size: 32px;
-}
 </style>

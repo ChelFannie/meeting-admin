@@ -30,7 +30,7 @@ export const detailBtnFlaMixin = {
         {label: '详细地址', prop: 'meetingAddress', text: '海珠区广州大道南创投小镇'},
         {label: '会议性质', prop: 'meetingType', text: ''},
         {label: '预计人数', prop: 'participantsNumber', text: '30'},
-        {label: '会议背景', prop: 'meetingIntroduction', text: '会议背景海珠区广州大道南创投小镇海珠区广州大道南创投小镇海珠区广州大道南创投小镇海珠区广州大道南创投小镇'}
+        {label: '会议背景', prop: 'meetingIntroduction', text: '会议背景海珠区广州大道南创投小镇海珠区广州大道南创投小镇海珠区广州大道南创'}
       ],
       // 展示详情页
       dialogTableVisible: false

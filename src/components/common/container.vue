@@ -64,8 +64,35 @@ export default {
 </script>
 <style lang="less">
 .container{
-  .el-table td{
-    padding: 10px 0;
+  .el-table{
+    td{
+      padding: 10px 0;
+    }
+  }
+  .el-table__header{
+    .cell{
+      font-family:SourceHanSansCN-Regular;
+      font-size: 16px;
+    }
+  }
+  .el-table__body-wrapper{
+    .cell{
+      font-size: 16px;
+      font-family:SourceHanSansCN-Normal;
+    }
+  }
+  .el-table__row{
+    .el-button{
+      border-radius: 6px;
+      padding: 7px 14px;
+      border: none;
+      background: #2A9DFD;
+      color: #fff;
+      span{
+        font-size: 16px;
+        font-family:SourceHanSansCN-Light;
+      }
+    }
   }
 }
 </style>
