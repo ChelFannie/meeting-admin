@@ -1,6 +1,9 @@
 <template>
   <div class="meeting-handler">
-    <container :table-columns="tableColumns" :table-data="tableData"></container>
+    <container
+      :table-columns="tableColumns"
+      :table-data="tableData"
+      @handleEdit="handleEdit"></container>
   </div>
 </template>
 <script>
@@ -33,8 +36,8 @@ export default {
           lecturer: '曾斌',
           region: '广东-广州',
           meetingTime: '2019/01/15-2019/01/16',
-          state: '预约中',
-          operation: ['查看']
+          state: '会务组审核',
+          operation: ['审核（可编辑）']
         }, {
           applyTime: '2019/01/12',
           applicantName: '梁娜娜',
@@ -42,8 +45,8 @@ export default {
           lecturer: '冷佟',
           region: '北京-北京',
           meetingTime: '2019/01/13-2019/01/16',
-          state: '预约中',
-          operation: ['查看']
+          state: '会务组审核',
+          operation: ['审核（可编辑）']
         }, {
           applyTime: '2019/01/11',
           applicantName: '陶仁波',
@@ -51,19 +54,22 @@ export default {
           lecturer: '张偲程',
           region: '湖南-长沙',
           meetingTime: '2019/01/14-2019/01/15',
-          state: '预约中',
-          operation: ['查看', '编辑']
+          state: '会务组审核',
+          operation: ['审核（可编辑）']
         }
       ]
     }
   },
   created () {},
   mounted () {},
-  methods: {}
+  methods: {
+    // 点击操作栏
+    handleEdit (val) {
+      this.$emit('handleEdit', val)
+    }
+  }
 }
 </script>
 <style scoped>
-.meeting-handler{
-  font-size: 32px;
-}
+.meeting-handler{}
 </style>

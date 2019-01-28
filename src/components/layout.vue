@@ -54,8 +54,14 @@ export default {
 <style lang="less">
 .layout{
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
+  position: relative;
   .el-header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
     background-color: #63B7FD;
     color: #333;
     text-align: center;
@@ -98,12 +104,10 @@ export default {
     }
   }
 
-  .el-aside {
-    text-align: center;
-  }
-
   .el-main {
     background-color: #F7F7F7;
+    height: 100%;
+    padding-top: 80px;
     .content{
       background-color: #fff;
       box-shadow:0px 2px 12px 0px rgba(0, 0, 0, 0.1);

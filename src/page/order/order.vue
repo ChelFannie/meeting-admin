@@ -29,7 +29,7 @@
 
     <!-- 详情弹出框 -->
     <el-dialog :visible.sync="dialogTableVisible">
-      <meetinglist-detail :grid-data="gridData" @back="back"></meetinglist-detail>
+      <meetinglist-detail :grid-data="gridData" @back="back" btn-flag="order"></meetinglist-detail>
     </el-dialog>
   </div>
 </template>
@@ -88,7 +88,7 @@ export default {
           region: '湖南-长沙',
           meetingTime: '2019/01/14-2019/01/15',
           state: '预约中',
-          operation: ['查看', '编辑']
+          operation: ['查看']
         }, {
           applyTime: '2019/01/12',
           applicantName: '宋先生',
@@ -115,7 +115,7 @@ export default {
           region: '湖南-长沙',
           meetingTime: '2019/01/14-2019/01/15',
           state: '预约中',
-          operation: ['查看', '编辑']
+          operation: ['查看']
         }, {
           applyTime: '2019/01/12',
           applicantName: '宋先生',
@@ -142,7 +142,7 @@ export default {
           region: '湖南-长沙',
           meetingTime: '2019/01/14-2019/01/15',
           state: '预约中',
-          operation: ['查看', '编辑']
+          operation: ['查看']
         }, {
           applyTime: '2019/01/11',
           applicantName: '陶仁波',
@@ -151,7 +151,7 @@ export default {
           region: '湖南-长沙',
           meetingTime: '2019/01/14-2019/01/15',
           state: '预约中',
-          operation: ['查看', '编辑']
+          operation: ['查看']
         }
       ],
       // 当前页码
@@ -166,9 +166,9 @@ export default {
         {label: '会议时间', prop: 'meetingTime', text: ''},
         {label: '会议地点', prop: 'region', text: ''},
         {label: '详细地址', prop: 'meetingAddress', text: ''},
-        {label: '会议性质', prop: '', text: ''},
-        {label: '预计人数', prop: '', text: ''},
-        {label: '会议背景', prop: '', text: ''}
+        {label: '会议性质', prop: 'meetingType', text: ''},
+        {label: '预计人数', prop: 'participantsNumber', text: ''},
+        {label: '会议背景', prop: 'meetingIntroduction', text: ''}
       ],
       dialogTableVisible: false
     }
@@ -211,14 +211,9 @@ export default {
 </script>
 <style lang="less">
 .order{
-  .el-pagination{
-    padding-left: 0;
-    margin-top: 20px;
-    text-align: right;
-  }
-  .el-dialog{
-    background-color: #f2f2f2;
-    width: 500px;
+  .line-right-h{
+    height: 40px;
+    line-height: 40px;
   }
 }
 </style>

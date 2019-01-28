@@ -13,7 +13,7 @@ export default {
 <style>
 html, body {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -32,6 +32,5 @@ li{
   color: #000;
   width: 100%;
   height: 100%;
-  /* min-height: 100vh; */
 }
 </style>
