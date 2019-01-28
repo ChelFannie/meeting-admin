@@ -178,36 +178,6 @@ export default {
   created () {},
   mounted () {},
   methods: {
-    // // 搜索
-    // search (val) {
-    //   console.log(val)
-    // },
-    // // 清空搜索
-    // clear (val) {
-    //   console.log(val)
-    // },
-    // 点击操作栏
-    handleEdit (val) {
-      // console.log(val)
-      this.dialogTableVisible = true
-      this.gridData.map(item => {
-        Object.keys(val.row).map(key => {
-          if (item.prop === key) {
-            item.text = val.row[key]
-          }
-        })
-      })
-    },
-    // handleSizeChange (val) {
-    //   console.log(val, 'handleSizeChange')
-    // },
-    // handleCurrentChange (val) {
-    //   console.log(val, 'handleCurrentChange')
-    // },
-    // 点击弹出框中的返回
-    back () {
-      this.dialogTableVisible = false
-    }
   }
 }
 </script>

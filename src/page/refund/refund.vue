@@ -6,7 +6,7 @@
       <search-list @search="search" @clear="clear"></search-list>
 
       <el-tab-pane label="审核退款" name="notRefund">
-        <not-refund></not-refund>
+        <not-refund @handleEdit="handleEdit"></not-refund>
       </el-tab-pane>
 
       <el-tab-pane label="完成退款" name="completeRefund">
@@ -26,12 +26,25 @@
         :total="100">
       </el-pagination>
     </div>
+
+    <!-- 详情弹出框 -->
+    <el-dialog :visible.sync="dialogTableVisible">
+      <meetinglist-detail
+        :btn-flag="tabsActiveName"
+        :grid-data="gridData"
+        @back="back"
+        @save="save"
+        @approval="approval"
+        @cancel="cancel"></meetinglist-detail>
+    </el-dialog>
   </div>
 </template>
 <script>
 import NotRefund from '../../components/refund/not-refund'
 import CompleteRefund from '../../components/refund/complete-refund'
 import SearchList from '../../components/common/search-list'
+import MeetinglistDetail from '../../components/common/meetinglist-detail'
+
 import {detailBtnFlaMixin} from '../../common/js/mixins.js'
 
 export default {
@@ -39,7 +52,8 @@ export default {
   components: {
     NotRefund,
     CompleteRefund,
-    SearchList
+    SearchList,
+    MeetinglistDetail
   },
   mixins: [detailBtnFlaMixin],
   data () {

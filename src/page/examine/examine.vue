@@ -88,58 +88,6 @@ export default {
   created () {},
   mounted () {},
   methods: {
-    // // 搜索
-    // search (val) {
-    //   console.log(val)
-    // },
-    // // 清空搜索
-    // clear (val) {
-    //   console.log(val)
-    // },
-    // 切换菜单
-    // tabHandle (tab, event) {
-    //   // console.log(tab.name)
-    //   this.tabsActiveName = tab.name
-    // },
-    // handleSizeChange (val) {
-    //   console.log(val, 'handleSizeChange')
-    // },
-    // handleCurrentChange (val) {
-    //   console.log(val, 'handleCurrentChange')
-    // },
-    // 点击操作栏
-    handleEdit (val) {
-      if (this.tabsActiveName === 'examineDetail' && val.operationIndex === 1) {
-        console.log('取消会议')
-        return
-      }
-      // console.log(val)
-      this.dialogTableVisible = true
-      this.gridData.map(item => {
-        Object.keys(val.row).map(key => {
-          if (item.prop === key) {
-            item.text = val.row[key]
-          }
-        })
-      })
-    },
-    // 点击弹出框中的返回
-    back () {
-      this.dialogTableVisible = false
-    },
-    // 保存
-    save () {
-      console.log('保存')
-      this.dialogTableVisible = false
-    },
-    approval () {
-      console.log('批准')
-      this.dialogTableVisible = false
-    },
-    cancel () {
-      console.log('取消会议')
-      this.dialogTableVisible = false
-    }
   }
 }
 </script>

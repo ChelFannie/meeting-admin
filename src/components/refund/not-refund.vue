@@ -1,6 +1,6 @@
 <template>
   <div class="not-refund">
-    <container :table-columns="tableColumns" :table-data="tableData"></container>
+    <container :table-columns="tableColumns" :table-data="tableData" @handleEdit="handleEdit"></container>
   </div>
 </template>
 <script>
@@ -58,7 +58,13 @@ export default {
   },
   created () {},
   mounted () {},
-  methods: {}
+  methods: {
+    // 点击操作栏
+    handleEdit (val) {
+      console.log(val, 4)
+      this.$emit('handleEdit', val)
+    }
+  }
 }
 </script>
 <style scoped>
