@@ -1,6 +1,5 @@
 <template>
   <div class="not-refund">
-    <!-- not-refund -->
     <container :table-columns="tableColumns" :table-data="tableData"></container>
   </div>
 </template>

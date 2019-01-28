@@ -37,6 +37,7 @@
 import SearchList from '../../components/common/search-list'
 import Container from '../../components/common/container'
 import MeetinglistDetail from '../../components/common/meetinglist-detail'
+import {detailBtnFlaMixin} from '../../common/js/mixins.js'
 
 export default {
   name: 'order',
@@ -45,6 +46,7 @@ export default {
     SearchList,
     MeetinglistDetail
   },
+  mixins: [detailBtnFlaMixin],
   data () {
     return {
       activeName: 'meeting',
@@ -176,14 +178,14 @@ export default {
   created () {},
   mounted () {},
   methods: {
-    // 搜索
-    search (val) {
-      console.log(val)
-    },
-    // 清空搜索
-    clear (val) {
-      console.log(val)
-    },
+    // // 搜索
+    // search (val) {
+    //   console.log(val)
+    // },
+    // // 清空搜索
+    // clear (val) {
+    //   console.log(val)
+    // },
     // 点击操作栏
     handleEdit (val) {
       // console.log(val)
@@ -196,12 +198,12 @@ export default {
         })
       })
     },
-    handleSizeChange (val) {
-      console.log(val, 'handleSizeChange')
-    },
-    handleCurrentChange (val) {
-      console.log(val, 'handleCurrentChange')
-    },
+    // handleSizeChange (val) {
+    //   console.log(val, 'handleSizeChange')
+    // },
+    // handleCurrentChange (val) {
+    //   console.log(val, 'handleCurrentChange')
+    // },
     // 点击弹出框中的返回
     back () {
       this.dialogTableVisible = false

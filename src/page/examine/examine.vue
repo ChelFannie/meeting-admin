@@ -1,12 +1,18 @@
 <template>
   <div class="examine">
     <el-tabs v-model="tabsActiveName" @tab-click="tabHandle">
+
+      <!-- 搜索列表项 -->
+      <search-list @search="search" @clear="clear"></search-list>
+
       <el-tab-pane label="会务组审核" name="meetingHandler">
         <meeting-handler @handleEdit="handleEdit"></meeting-handler>
       </el-tab-pane>
+
       <el-tab-pane label="营销中心审核" name="marketingCenter">
         <marketing-center @handleEdit="handleEdit"></marketing-center>
       </el-tab-pane>
+
       <el-tab-pane label="审核跟进" name="examineDetail">
         <examine-detail @handleEdit="handleEdit"></examine-detail>
       </el-tab-pane>
@@ -28,7 +34,7 @@
     <!-- 详情弹出框 -->
     <el-dialog :visible.sync="dialogTableVisible">
       <meetinglist-detail
-        :btn-flag="btnFlag"
+        :btn-flag="tabsActiveName"
         :grid-data="gridData"
         @back="back"
         @save="save"
@@ -42,6 +48,8 @@ import MeetingHandler from '../../components/examine/meeting-handler'
 import MarketingCenter from '../../components/examine/marketing-center'
 import ExamineDetail from '../../components/examine/examine-detail'
 import MeetinglistDetail from '../../components/common/meetinglist-detail'
+import SearchList from '../../components/common/search-list'
+import {detailBtnFlaMixin} from '../../common/js/mixins.js'
 
 export default {
   name: 'examine',
@@ -49,10 +57,13 @@ export default {
     MeetingHandler,
     MarketingCenter,
     ExamineDetail,
-    MeetinglistDetail
+    MeetinglistDetail,
+    SearchList
   },
+  mixins: [detailBtnFlaMixin],
   data () {
     return {
+      // 当前标签页
       tabsActiveName: 'meetingHandler',
       // 当前页码
       currentPage: 1,
@@ -71,29 +82,34 @@ export default {
         {label: '会议背景', prop: 'meetingIntroduction', text: '会议背景海珠区广州大道南创投小镇海珠区广州大道南创投小镇海珠区广州大道南创投小镇海珠区广州大道南创投小镇'}
       ],
       // 展示详情页
-      dialogTableVisible: false,
-      // 详情页中的按钮显示
-      btnFlag: 'meetingHandler'
+      dialogTableVisible: false
     }
   },
   created () {},
   mounted () {},
   methods: {
+    // // 搜索
+    // search (val) {
+    //   console.log(val)
+    // },
+    // // 清空搜索
+    // clear (val) {
+    //   console.log(val)
+    // },
     // 切换菜单
-    tabHandle (tab, event) {
-      // console.log(tab.name)
-      this.tabsActiveName = tab.name
-      this.btnFlag = tab.name
-    },
-    handleSizeChange (val) {
-      console.log(val, 'handleSizeChange')
-    },
-    handleCurrentChange (val) {
-      console.log(val, 'handleCurrentChange')
-    },
+    // tabHandle (tab, event) {
+    //   // console.log(tab.name)
+    //   this.tabsActiveName = tab.name
+    // },
+    // handleSizeChange (val) {
+    //   console.log(val, 'handleSizeChange')
+    // },
+    // handleCurrentChange (val) {
+    //   console.log(val, 'handleCurrentChange')
+    // },
     // 点击操作栏
     handleEdit (val) {
-      if (this.btnFlag === 'examineDetail' && val.operationIndex === 1) {
+      if (this.tabsActiveName === 'examineDetail' && val.operationIndex === 1) {
         console.log('取消会议')
         return
       }
